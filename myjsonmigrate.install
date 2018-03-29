@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function myjsonmigrate_uninstall() {
+  db_query("DELETE FROM {config} WHERE name LIKE 'migrate.migration.json_example%'");
+  drupal_flush_all_caches();
+}

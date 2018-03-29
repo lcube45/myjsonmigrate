@@ -1,0 +1,43 @@
+id: json_example
+label: Import content from a API delivering JSON
+migration_group: lcube
+dependencies:
+  enforced:
+    module:
+      - myjsonmigrate
+
+destination:
+  plugin: entity:node
+
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+
+  urls: https://reqres.in/api/unknown
+
+  item_selector: data
+
+  fields:
+    -
+      name: id
+      label: 'Id'
+      selector: id
+    -
+      name: name
+      label: 'Name'
+      selector: name
+
+  ids:
+    id:
+      type: integer
+
+process:
+  type:
+    plugin: default_value
+    default_value: json_article
+
+  title: name
+  uid:
+    plugin: default_value
+    default_value: 1

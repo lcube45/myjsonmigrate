@@ -1,0 +1,5 @@
+name: 'myjsonmigrate'
+type: module
+description: 'Example of API Json data migration'
+core: 8.x
+package: 'lcube'
